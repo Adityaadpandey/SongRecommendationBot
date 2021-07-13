@@ -1,5 +1,6 @@
 import pyttsx3
 import speech_recognition as sr 
+import function
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -26,3 +27,11 @@ def takecom():
         return "none"
 
     return text
+
+while True:
+    query = takecom()
+    query = query.lower()
+    if "history" in query:
+        function.try2()
+    else:
+        break
