@@ -1,5 +1,5 @@
 import pyttsx3
-import speech_recognition
+import speech_recognition as sr
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -11,5 +11,20 @@ def speak(audio):  # here audio is var which contain query
     engine.say(audio)
     engine.runAndWait()
 
-speak("hi bro")
+def takecom():
+    r = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("Listning....")
+        audio = r.listen(source)
+    try:
+        print("Recognising.")
+        text = r.recognize_google(audio, language='en-IN')
+        print(text)
+    except Exception:  # For Error handling
+        speak("error... speak aloud ")
+        print("error... speak aloud")
+        return "none"
+
+    return text
+
 
