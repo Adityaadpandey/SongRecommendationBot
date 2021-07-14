@@ -27,11 +27,14 @@ def takecom():
         return "none"
 
     return text
-
-while True:
-    query = takecom()
-    query = query.lower()
+r = sr.Recognizer()
+print(r)
+run = True
+while run:
+    query = takecom().lower()
+    
     if "history" in query:
         function.try2()
+        print("ok")
     else:
-        break
+        run = False
