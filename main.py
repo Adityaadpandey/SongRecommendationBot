@@ -25,13 +25,3 @@ while True:
         try1()
     else:
         break
-
-
-
-
-
-
-    
-
-
-
