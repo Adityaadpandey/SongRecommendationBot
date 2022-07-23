@@ -7,12 +7,16 @@ import re
 
 
 def create_table():
-    c.execute('CREATE TABLE IF NOT EXISTS RecordONE (song_name REAL, time TEXT)')
+    conn = sqlite3.connect('data.db')
+    c = conn.cursor()
+    c.execute('CREATE TABLE IF NOT EXISTS RecordONE (song_name REAL)')
 
 
 def data_entry(number):
-    time = current_time
-    c.execute("INSERT INTO RecordONE (song_name, time) VALUES(?, ?)", (number, time))
+    conn = sqlite3.connect('data1.db')
+    c = conn.cursor()
+    # time = current_time
+    c.execute("INSERT INTO RecordONE (song_name) VALUES(?)", (number))
     conn.commit()
 
 
@@ -24,15 +28,16 @@ def data_entry(number):
 # conn.close()
 
 
-def anything():
-    conn = sqlite3.connect('data.db')
+def anything(s):
+    d = s+'.db'
+    conn = sqlite3.connect(d)
     c = conn.cursor()
 
     now = datetime.now()
 
     current_time = now.strftime("%D:%H:%M:%S")
     # print("Current Time =", current_time)
-    db = sqlite3.connect("data.db")
+    db = sqlite3.connect(d)
     data = pd.read_sql_query("SELECT song_name FROM RecordONE", db)
 
     # print(data)
