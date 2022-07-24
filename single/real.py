@@ -25,19 +25,29 @@ def anything(s):
 
     # print(data)
     df = pd.DataFrame(data)
+    # df.loc[df['song_name'] == 'song_name']
+    df2 = df.to_string(index=False)
+
+# Using BlankIndex to print DataFrame without index 
+    blankIndex=[''] * len(df)
+    df.index=blankIndex
+
+    # Using hide_index()
+    df.style.hide_index()
+    print(df)
     test = df.sample()
     # print(test)
     test = str(test)
     a = test.replace("song_name", "")
-
+    print(a)
     # test.replace(int, "")
 
-    pattern = r'[0-9]'
-    ab = re.sub(pattern, '', a)
-    abc = ab.replace(" ", "")
-    abc = str(abc)
-    print(abc)
-    pywhatkit.playonyt(abc)
+    # pattern = r'[0-9]'
+    # ab = re.sub(pattern, '', a)
+    # abc = ab.replace(" ", "")
+    # abc = str(abc)
+    # print(abc)
+    pywhatkit.playonyt(a)
 
 # c.execute('CREATE TABLE IF NOT EXISTS RecordONE (song_name REAL, time TEXT)')
 def data_entry(number):
@@ -76,8 +86,7 @@ def data_on():
     # while True:
         for file in get_files(r'./'):
             if file =='data.db':
-                
-                # while True:
+                while True:
                     print("1.play music \n2.play music from database \n3.exit\n")
                     var = int(input("Enter your choice: "))
                     if var == 1:
