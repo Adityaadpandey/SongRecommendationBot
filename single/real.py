@@ -39,11 +39,11 @@ def anything(s):
     print(abc)
     pywhatkit.playonyt(abc)
 
-
+# c.execute('CREATE TABLE IF NOT EXISTS RecordONE (song_name REAL, time TEXT)')
 def data_entry(number):
     conn = sqlite3.connect('data.db')
     c = conn.cursor()
-    c.execute('CREATE TABLE IF NOT EXISTS RecordONE (song_name REAL, time TEXT)')
+    
 
     now = datetime.now()
 
@@ -73,39 +73,68 @@ def get_files(path):
             yield file
 
 def data_on():
-    for file in get_files(r'./'):
-        if file =='data.db':
+    # while True:
+        for file in get_files(r'./'):
+            if file =='data.db':
+                
+                # while True:
+                    print("1.play music \n2.play music from database \n3.exit\n")
+                    var = int(input("Enter your choice: "))
+                    if var == 1:
+                        try1()
+                        time.sleep(5)
+                        # try:
+                        #     try1()
+                        #     time.sleep(5)
+                        # except:
+                        #     print("")
+                    elif var == 2:
+                        anything('data')
+                        time.sleep(5)
+                        # try:
+                        #     anything('data')
+                        #     time.sleep(5)
+                        # except:
+                        #     print("Database is empty or do not exist")
+                    elif var == 3:
+                        exit()
+            else:
+                conn = sqlite3.connect('data.db')
+                c = conn.cursor()
+                c.execute('CREATE TABLE IF NOT EXISTS RecordONE (song_name REAL, time TEXT)')
+                print("Database is not exist")
+                while True:
+                    print("1.play music  \n2.exit\n")
+                    var = int(input("Enter your choice: "))
+                    if var == 1:
+                        try1()
+                        time.sleep(5)
+                        for file in get_files(r'./'):
+                            if file =='data.db':
+                                print("Database exist")
+                                while True:
+                                    print("1.play music  \n2.play music from database \n3.exit\n")
+                                    var1 = int(input("Enter your choice: "))
+                                    if var1 == 1:
+                                        try1()
+                                        time.sleep(5)
+                                        # try:
+                                        #     try1()
+                                        #     time.sleep(5)
+                                        # except:
+                                        #     print("")
+                                    elif var1 == 2:
+                                        anything('data')
+                                        time.sleep(5)
+                                        # try:
+                                        #     anything('data')
+                                        #     time.sleep(5)
+                                        # except:
+                                        #     print("Database is empty or do not exist")
+                                    elif var1 == 3:
+                                        exit()
+                    elif var == 2:
+                        exit()
+                
             
-            while True:
-                print("1.play music \n2.play music from database \n3.exit\n")
-                var = int(input("Enter your choice: "))
-                if var == 1:
-                    try1()
-                    time.sleep(5)
-                    # try:
-                    #     try1()
-                    #     time.sleep(5)
-                    # except:
-                    #     print("")
-                elif var == 2:
-                    anything('data')
-                    time.sleep(5)
-                    # try:
-                    #     anything('data')
-                    #     time.sleep(5)
-                    # except:
-                    #     print("Database is empty or do not exist")
-                elif var == 3:
-                    exit()
-        else:
-            print("Database is not exist")
-            while True:
-                print("1.play music  \n2.exit\n")
-                var = int(input("Enter your choice: "))
-                if var == 1:
-                    try1()
-                    time.sleep(5)
-                elif var == 2:
-                    exit()
-
 data_on()
