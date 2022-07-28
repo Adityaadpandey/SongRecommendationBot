@@ -3,7 +3,7 @@ import time
 import sqlite3
 from datetime import datetime
 import pandas as pd
-import re
+# import re
 import os
 
 def take_com():
@@ -18,7 +18,7 @@ def anything(s):
 
     now = datetime.now()
 
-    current_time = now.strftime("%D:%H:%M:%S")
+    # current_time = now.strftime("%D:%H:%M:%S")
     # print("Current Time =", current_time)
     db = sqlite3.connect(d)
     data = pd.read_sql_query("SELECT song_name FROM RecordONE", db)
@@ -34,7 +34,7 @@ def anything(s):
 
     # Using hide_index()
     df.style.hide_index()
-    print(df)
+    # print(df)
     test = df.sample()
     # print(test)
     test = str(test)
