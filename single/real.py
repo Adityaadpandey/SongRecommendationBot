@@ -83,7 +83,7 @@ def get_files(path):
             yield file
 
 def data_on():
-    while True:
+    # while True:
         for file in get_files(r'./'):
             if file =='data.db':
                 while True:
