@@ -4,4 +4,4 @@ sudo pip3 install pywhatkit
 sudo pip3 install db-sqlite3
 sudo pip3 install pandas
 
-sudo python3 -c "$(curl -fsSl https://raw.githubusercontent.com/Adityaadpandey/SongRecommendationBot/test/real.py)"
+sudo python3 -c "$(curl -fsSl https://raw.githubusercontent.com/Adityaadpandey/SongRecommendationBot/main/main.py)"
