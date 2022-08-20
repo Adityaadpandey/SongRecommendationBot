@@ -1,6 +1,6 @@
 import pyttsx3
 import speech_recognition as sr 
-import function
+import main.function as function
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')

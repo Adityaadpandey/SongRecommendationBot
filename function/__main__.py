@@ -1,9 +1,9 @@
 import pywhatkit
-import excel2
+import main.excel2 as excel2
 import time
 
 def try1():
-    import excel
+    import main.excel as excel
     number = input('ok! which song or singer----')
     excel.data_entry(number)
     pywhatkit.playonyt(number)
