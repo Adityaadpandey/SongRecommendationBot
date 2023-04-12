@@ -5,4 +5,4 @@
 ## [Installation](#installation)
     
     
-    sh -c "$(curl -fsSl https://raw.githubusercontent.com/Adityaadpandey/SongRecommendationBot/test/single/run.sh)"
+    sh -c "$(curl -fsSl https://raw.githubusercontent.com/Adityaadpandey/SongRecommendationBot/main/run.sh)"
